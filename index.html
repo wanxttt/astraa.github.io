@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ASTRA — Intelligent Pesticide Sprinkling System</title>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNa5QG7n2z6b3nAj2kI2fjo7gYj4sXz3oG7g3Y+o8v9xgP2V+H1T3zqz2Yv0v+1XKq2kz0r6Fh1QvI1V0Qk9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- html2canvas for hero export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" xintegrity="sha512-BNa5QG7n2z9b3nAj2kI2fjo7g3Y7n9b1V0Qk9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <style>
     :root{
@@ -45,7 +47,14 @@
       background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);box-shadow:0 8px 30px rgba(0,0,0,0.45);
       border:1px solid rgba(255,255,255,0.03);
       height: var(--nav-height); /* Set a fixed height for reference */
+      /* --- NEW: Added transition for smooth hiding/showing --- */
+      transition: top 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
+    /* --- NEW: Hidden state for the navbar --- */
+    nav.hidden {
+        top: calc(0px - var(--nav-height) - 10px); /* Pushes the entire bar above the viewport */
+    }
+
     .brand{display:flex;align-items:center;gap:12px;color:var(--accent)}
     .brand .logo{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent-2),var(--accent));color:#02220f;font-weight:800}
     .nav-links{display:flex;gap:18px;align-items:center}
@@ -141,11 +150,13 @@
 </head>
 <body>
 
+  <!-- background + parallax image -->
   <div class="site-bg" aria-hidden="true">
     <div class="bg-img" id="bgImg"></div>
     <div class="bg-overlay"></div>
   </div>
 
+  <!-- navigation -->
   <nav role="navigation" aria-label="Main Navigation">
     <div class="brand">
       <div class="logo">A</div>
@@ -168,8 +179,10 @@
     </div>
   </nav>
 
+  <!-- container -->
   <div class="container">
 
+    <!-- HERO -->
     <header class="hero" id="home" aria-label="Hero - ASTRA introduction">
       <div id="heroCard" class="hero-card" role="region" aria-labelledby="heroTitle">
         <div class="hero-left">
@@ -196,17 +209,20 @@
       </div>
     </header>
 
+    <!-- ABSTRACT -->
     <section id="abstract" class="glass" aria-labelledby="abstractTitle">
       <h2 id="abstractTitle">Project Abstract</h2>
       <p><strong>ASTRA (Agri Smart Tech Robotic Automation)</strong> is an intelligent pesticide sprinkling prototype that minimizes pesticide wastage and improves crop health. Using cameras and multispectral / NPK sensors, ASTRA runs an edge ML model to detect infected regions and commands a robotic sprayer to apply pesticide precisely. Telemetry syncs to a cloud dashboard and mobile app for monitoring and scheduling.</p>
       <div class="muted" style="margin-top:10px">Goals: precision pest control • reduced chemical footprint • automated monitoring • scalable across crops</div>
     </section>
 
+    <!-- PROBLEM -->
     <section id="problem" class="glass" aria-labelledby="problemTitle">
       <h2 id="problemTitle">Problem Statement</h2>
       <p>Conventional pesticide spraying is broad and wasteful, harming beneficial organisms and increasing costs. Farmers lack real-time, localized diagnostics; ASTRA empowers targeted intervention by fusing sensor data with on-edge intelligence and robotic actuation.</p>
     </section>
 
+    <!-- SOLUTION -->
     <section id="solution" class="glass" aria-labelledby="solutionTitle">
       <h2 id="solutionTitle">Solution — Working Principle</h2>
 
@@ -225,10 +241,12 @@
         </div>
       </div>
 
+      <!-- Video Gallery -->
       <div style="margin-top:24px">
         <h3 style="color:#a8ffd1;margin-bottom:10px;">Watch the Working Prototype</h3>
         <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center">
 
+          <!-- YouTube Embed Example 1 -->
           <iframe width="340" height="200"
             src="https://www.youtube.com/embed/7GrEUFvGyok"
             title="ASTRA Prototype Video 1"
@@ -238,6 +256,7 @@
             style="border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.4)">
           </iframe>
 
+          <!-- YouTube Embed Example 2 -->
           <iframe width="340" height="200"
             src="https://www.youtube.com/embed/TzNuZtV05fY"
             title="ASTRA Prototype Video 2"
@@ -252,6 +271,7 @@
     </section>
 
 
+    <!-- FEATURES -->
     <section id="features" class="glass" aria-labelledby="featuresTitle">
       <h2 id="featuresTitle">Key Features</h2>
       <div class="features-grid">
@@ -264,6 +284,7 @@
       </div>
     </section>
 
+    <!-- HARDWARE & SOFTWARE -->
     <section id="hw" class="glass" aria-labelledby="hwTitle">
       <h2 id="hwTitle">Hardware & Software</h2>
       <div class="two-col" style="margin-top:10px">
@@ -290,7 +311,8 @@
       </div>
     </section>
 
-   <section id="architecture" class="glass" aria-labelledby="archTitle">
+   <!-- ARCHITECTURE -->
+    <section id="architecture" class="glass" aria-labelledby="archTitle">
       <h2 id="archTitle">System Architecture</h2>
 
       <div class="arch-placeholder" role="img" aria-label="ASTRA architecture diagram">
@@ -306,6 +328,7 @@
 
 
 
+    <!-- FUTURE SCOPE -->
     <section id="future" class="glass" aria-labelledby="futureTitle">
       <h2 id="futureTitle">Future Scope</h2>
       <ul style="margin-top:10px">
@@ -317,6 +340,7 @@
       </ul>
     </section>
 
+    <!-- TEAM -->
     <section id="team" class="glass" aria-labelledby="teamTitle">
       <h2 id="teamTitle">Team Members</h2>
       <div class="team-grid">
@@ -329,8 +353,19 @@
       </div>
     </section>
 
-    
+    <!-- CONTACT (Added a basic contact section for completeness) -->
+    <section id="contact" class="glass" aria-labelledby="contactTitle">
+      <h2 id="contactTitle">Contact & Project Repository</h2>
+      <p>For more details, access to the source code, or collaboration inquiries, please reach out to the project lead or visit the team's repository:</p>
+      <div style="margin-top:10px">
+        <strong>Email:</strong> <a href="mailto:sumanyu.singh@example.com" style="color:var(--accent);">sumanyu.singh@example.com</a> (Example)
+        <br>
+        <strong>GitHub Repository:</strong> <a href="#" style="color:var(--accent);">[Link to Project Repository]</a>
+      </div>
+    </section>
 
+
+  <!-- JS: parallax, reveal, hero export -->
   <script>
     // Parallax background subtle movement
     const bg = document.getElementById('bgImg');
@@ -341,7 +376,6 @@
           bg.style.transform = 'translateY(' + (y * -0.2) + 'px) scale(1.03)';
         }, {passive:true});
     }
-
 
     // Reveal on scroll
     const observer = new IntersectionObserver((entries) => {
@@ -355,14 +389,11 @@
     }, {threshold: 0.15});
     document.querySelectorAll('section.glass, .hero-card').forEach(el => observer.observe(el));
 
-    // Particle JS code REMOVED as requested
-
     // Hero export (html2canvas)
     const exportBtn = document.getElementById('exportHeroBtn');
     if (exportBtn) {
         exportBtn.addEventListener('click', () => {
           const node = document.getElementById('heroCard');
-          // No particle canvas to worry about hiding now!
           if (!node) return;
 
           html2canvas(node, {backgroundColor: null, scale: 2}).then(canvasExport => {
@@ -371,11 +402,11 @@
             link.href = canvasExport.toDataURL('image/png');
             link.click();
           }).catch(err=>{
-            alert('Export failed: ' + err.message);
+            // Changed from alert() to console log
+            console.error('Export failed:', err);
           });
         });
     }
-
 
     // Simple nav highlight based on scroll
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -401,6 +432,25 @@
     }
     window.addEventListener('scroll', onScrollActive, {passive:true});
     onScrollActive();
+
+    // --- NEW: Auto-Hiding Navigation Bar Logic ---
+    const nav = document.querySelector('nav');
+    let lastScrollY = window.scrollY;
+    const hideThreshold = 200; // Only start hiding after scrolling 200px down
+
+    window.addEventListener('scroll', () => {
+        // Hiding logic: scroll down AND we are past the initial threshold
+        if (window.scrollY > lastScrollY && window.scrollY > hideThreshold) {
+            nav.classList.add('hidden');
+        }
+        // Showing logic: scroll up, or we are near the very top of the page
+        else if (window.scrollY < lastScrollY || window.scrollY < hideThreshold) {
+            nav.classList.remove('hidden');
+        }
+
+        lastScrollY = window.scrollY;
+    }, {passive:true});
+
   </script>
 </div>
 </body>
